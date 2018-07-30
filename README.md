@@ -1,6 +1,6 @@
 Habrpars
 =====
-[![Build Status](https://travis-ci.org/mitrofun/habrpars.svg?branch=master)](https://travis-ci.org/mitrofun/habrpars) [![Coverage Status](https://coveralls.io/repos/github/mitrofun/habrpars/badge.svg?branch=master)](https://coveralls.io/github/mitrofun/habrpars?branch=master)
+[![Build Status](https://travis-ci.org/mitrofun/habrpars.svg?branch=master)](https://travis-ci.org/mitrofun/habrpars) [![Coverage Status](https://coveralls.io/repos/github/mitrofun/habrpars/badge.svg?branch=master)](https://coveralls.io/github/mitrofun/habrpars?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mitrofun/habrpars/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mitrofun/habrpars/?branch=master) [![GitHub release](https://img.shields.io/github/release/mitrofun/habrpars.svg)](https://GitHub.com/mitrofun/habrpars/releases/) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/mitrofun/habrpars/blob/master/LICENSE)
 
 Analyzer of the frequency of use of nouns in the headings of posts on [habr](https://habr.com/)
 
