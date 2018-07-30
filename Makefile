@@ -1,4 +1,4 @@
-.PHONY: all help qa clean coverage
+.PHONY: all help qa clean coverage build docker-build run
 
 # target: all - Default target. Does nothing.
 all:
@@ -26,3 +26,18 @@ clean:
 coverage:
 	py.test --cov=.
 
+# target: build - Build pkg
+build:
+	python setup.py sdist
+
+# target: setup-test - Test setup py
+setup-test:
+	python setup.py test
+
+# target: setup-test - Build docker image with tag habrpars
+docker-build:
+	docker build . -t habrpars
+
+# target: run - Run main script
+run:
+	python3 habrpars/habrpars.py

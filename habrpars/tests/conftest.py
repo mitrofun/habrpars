@@ -4,13 +4,15 @@ import sys
 import pytest
 from bs4 import BeautifulSoup
 
+
 sys.path.insert(0, os.path.abspath('.'))
+sys.path.append(os.path.join(os.path.abspath('.'), 'habrpars'))
 
 
 @pytest.fixture
 def page():
     path = os.path.abspath('.')
-    filename = os.path.join(path, 'fixtures', 'page.html')
+    filename = os.path.join(path, 'habrpars', 'fixtures', 'page.html')
     return filename
 
 

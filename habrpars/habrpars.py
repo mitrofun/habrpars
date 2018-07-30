@@ -1,3 +1,5 @@
+import sys
+
 import os
 
 import re
@@ -11,13 +13,15 @@ import logging.config
 
 from bs4 import BeautifulSoup
 
-from dates import (normalize_date, get_first_date_in_week, get_last_date_in_week, date_to_string)
-from helpers import timed, flat_list, get_max_len_word, get_max_len_number
+from .console import Colors
+from .dates import (normalize_date, get_first_date_in_week, get_last_date_in_week, date_to_string)
+from .helpers import timed, flat_list, get_max_len_word, get_max_len_number
 
 
 URL = 'https://habr.com/all/'
 PAGE_START = 1
 PAGE_COUNT = 10
+TOP_SIZE = 5
 
 DEBUG = os.environ.get('DEBUG') == 'true'
 
@@ -53,32 +57,35 @@ def parse_args():
     Get arguments from the command line
     :return: args from console
     """
+    help_text = """
+    Analyzer of the frequency of use of nouns in the headings of posts on hubr.com
+    """
     parser = argparse.ArgumentParser(
-        description='Top noun used in post title in hubr.com'
+        description=help_text
     )
     parser.add_argument(
         '-p',
         '--pages',
         type=int,
         dest='page_count',
-        default=10,
-        help='Number of pages to parse, default is 10.'
+        default=PAGE_COUNT,
+        help=f'Number of pages to parse, default is {PAGE_COUNT}.'
     )
     parser.add_argument(
         '-s',
         '--start',
         type=int,
-        default=1,
+        default=PAGE_START,
         dest='start_page',
-        help='Start page number, default is 1.',
+        help=f'Start page number, default is {PAGE_START}.',
     )
     parser.add_argument(
         '-t',
         '--top',
         type=int,
-        default=10,
+        default=TOP_SIZE,
         dest='top_size',
-        help='The size of the top verbs, default is 10.',
+        help=f'The size of the top noun, default is {TOP_SIZE}.',
     )
 
     return parser.parse_args()
@@ -141,7 +148,10 @@ def main():
     words_on_date = get_words_on_date(posts)
 
     # console
+    sys.stdout.write(Colors.BOLD + Colors.HEADER)
     print('=' * 80)
+    sys.stdout.write(Colors.ENDC)
+    sys.stdout.write(Colors.BOLD)
     print(f'Count pages have been parsed: {args.page_count}')
     print(f'Total count weeks: {len(words_on_date)}')
     print(f'Top: {args.top_size}')
@@ -155,7 +165,10 @@ def main():
                     f'{date_to_string(last_day_week)}'
         weak_name_len = len(week_name)
         offset = int((80 - weak_name_len) / 2)
+        sys.stdout.write(Colors.BOLD + Colors.GREEN)
         print('-' * offset, week_name, '-' * (offset - 1))
+        sys.stdout.write(Colors.ENDC)
+        sys.stdout.write(Colors.BOLD)
         flat_words_collection = flat_list(words_collection)
         max_len_word = get_max_len_word(flat_words_collection)
         max_len_number = get_max_len_number(flat_words_collection)
@@ -163,7 +176,9 @@ def main():
             str_len = len(f'{word}: {count}')
             complete_len = (max_len_word + max_len_number + 2) - str_len
             print(f'{word}: {count}', ' ' * complete_len, '*' * count)
+    sys.stdout.write(Colors.BOLD + Colors.HEADER)
     print('=' * 80)
+    sys.stdout.write(Colors.ENDC)
 
 
 if __name__ == '__main__':
