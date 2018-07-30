@@ -12,6 +12,9 @@ media
 collected_static
 secret_key.txt
 
+# Compiled python modules.
+*.pyc
+
 ### OSX template
 .idea
 .DS_Store
@@ -103,5 +106,3 @@ node_modules
 /.cache/
 /TODO.md
 /.pytest_cache/
-
-/older/  # old version

@@ -1,0 +1,8 @@
+services:
+  - docker
+
+before_install:
+  - docker build . -t habrpars
+
+script:
+  - docker run --rm habrpars python3 setup.py test

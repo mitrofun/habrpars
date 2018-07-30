@@ -40,6 +40,8 @@ def test_normalize_date():
     assert normalize_date('вчера в 14:08') == today - timedelta(days=1)
     assert normalize_date('18 июля в 12:30') == datetime(year=today.year, month=7, day=18).date()
     assert normalize_date('19 июня 2014 в 04:41') == datetime(year=2014, month=6, day=19).date()
+    # interesting date on page
+    assert normalize_date(' 9 июля в 23:43') == datetime(year=today.year, month=7, day=9).date()
 
 
 def test_get_first_date_in_week():

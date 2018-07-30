@@ -13,8 +13,14 @@ import logging.config
 
 from bs4 import BeautifulSoup
 
+# del . in develop
 from .console import Colors
-from .dates import (normalize_date, get_first_date_in_week, get_last_date_in_week, date_to_string)
+from .dates import (
+    normalize_date,
+    get_first_date_in_week,
+    get_last_date_in_week,
+    date_to_string
+)
 from .helpers import timed, flat_list, get_max_len_word, get_max_len_number
 
 

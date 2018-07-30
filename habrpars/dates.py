@@ -74,6 +74,10 @@ def normalize_date(humanize_date):
     if not humanize_date:
         return ''
     date = ''
+    # there are dates on the website, like ' 9 июля в 23:43',
+    # see test_dates line 44
+    humanize_date = humanize_date.strip()
+
     if len(humanize_date.split(' ')) == 3:
         date = _normalize_date_from_date_in_words(humanize_date)
     if len(humanize_date.split(' ')) == 4:

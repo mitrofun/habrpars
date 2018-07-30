@@ -26,7 +26,7 @@ setup(
     entry_points={'console_scripts': [
         'habrpars = habrpars.habrpars:main',
     ]},
-    version='0.1',
+    version='0.1.1',
     install_requires=[
         'bs4>=0.0.1',
         'beautifulsoup4>=4.6.0',

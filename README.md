@@ -1,6 +1,6 @@
 # Habrpars
 =====
-[![Build Status](https://travis-ci.org/mitrofun/topverbs.svg?branch=master)](https://travis-ci.org/mitrofun/topverbs) [![Coverage Status](https://coveralls.io/repos/github/mitrofun/topverbs/badge.svg?branch=master)](https://coveralls.io/github/mitrofun/topverbs?branch=master)
+[![Build Status](https://travis-ci.org/mitrofun/habrparse.svg?branch=master)](https://travis-ci.org/mitrofun/topverbs) [![Coverage Status](https://coveralls.io/repos/github/mitrofun/habrparse/badge.svg?branch=master)](https://coveralls.io/github/mitrofun/habrparse?branch=master)
 
 Analyzer of the frequency of use of nouns in the headings of posts on [habr](https://habr.com/)
 
@@ -41,6 +41,10 @@ Requirements
 Contributors
 =====
 - [mitri4](https://github.com/habrapars)
+
+TODO
+=====
+- Fix import in develop
 
 License
 =====

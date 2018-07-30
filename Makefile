@@ -38,6 +38,10 @@ setup-test:
 docker-build:
 	docker build . -t habrpars
 
-# target: run - Run main script
+# target: run in develop - Run main script (develop)
 run:
 	python3 habrpars/habrpars.py
+
+# target: docker-test - Test code in docker
+docker-test:
+	docker run --rm habrpars python3 setup.py test
