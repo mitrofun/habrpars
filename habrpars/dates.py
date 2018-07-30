@@ -1,9 +1,9 @@
-import locale
+# import locale
 
-import calendar
+# import calendar
 from datetime import datetime, timedelta
 
-locale.setlocale(locale.LC_ALL, 'ru_RU')
+# locale.setlocale(locale.LC_ALL, 'ru_RU')
 
 
 def _normalize_date_from_date_in_words(date_in_words):
@@ -25,7 +25,22 @@ def _normalize_date_from_date_with_month_without_year(date_with_month_without_ye
     date_list = date_with_month_without_year.split(' ')[:2]
     day = int(date_list[0])
     month_name = date_list[1]
-    month_name_to_num = {name: num for num, name in enumerate(calendar.month_name) if num}
+    # Problem on pc without Ru locale
+    # month_name_to_num = {name: num for num, name in enumerate(calendar.month_name) if num}
+    month_name_to_num = {
+        'января': 1,
+        'февраля': 2,
+        'марта': 3,
+        'апреля': 4,
+        'мая': 5,
+        'июня': 6,
+        'июля': 7,
+        'августа': 8,
+        'сентября': 9,
+        'октября': 10,
+        'ноября': 11,
+        'декабря': 12
+    }
     try:
         month = month_name_to_num[month_name]
         if month:
