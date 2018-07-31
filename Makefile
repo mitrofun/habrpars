@@ -34,7 +34,7 @@ build:
 setup-test:
 	python setup.py test
 
-# target: setup-test - Build docker image with tag habrpars
+# target: docker-build - Build docker image with tag habrpars
 docker-build:
 	docker build . -t habrpars
 
